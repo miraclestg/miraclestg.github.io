@@ -59,7 +59,7 @@ export const projects: Project[] = [
         github: "",
         demo: "",
         image: "/images/preview/test.png",
-        featured: true,
+        featured: false,
         highlights: [
             "Test Line 1",
             "Test Line 2",
@@ -77,7 +77,7 @@ export const projects: Project[] = [
         github: "",
         demo: "",
         image: "/images/preview/test.png",
-        featured: true,
+        featured: false,
         highlights: [
             "Test Line 1",
             "Test Line 2",
@@ -95,7 +95,7 @@ export const projects: Project[] = [
         github: "",
         demo: "",
         image: "/images/preview/test.png",
-        featured: true,
+        featured: false,
         highlights: [
             "Test Line 1",
             "Test Line 2",
@@ -113,7 +113,7 @@ export const projects: Project[] = [
         github: "",
         demo: "",
         image: "/images/preview/test.png",
-        featured: true,
+        featured: false,
         highlights: [
             "Test Line 1",
             "Test Line 2",
@@ -122,7 +122,17 @@ export const projects: Project[] = [
             "Test Line 5"
         ]
     },
-
+{
+        id: "portfolio",
+        title: "Portfolio Website",
+        description: "Modern responsive portfolio with React, TypeScript, and TailwindCSS. Features dark/light theme, animations, and SEO optimization.",
+        category: "web",
+        technologies: ["React", "TypeScript", "TailwindCSS", "Vite"],
+        github: "https://github.com/miraclestg/miraclestg.github.io",
+        demo: "https://phuongan.xyz/",
+        image: "/images/preview/porfolio.png",
+        featured: true,        
+    },
     ];
 
 // Limit to 3 featured projects on homepage
