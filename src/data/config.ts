@@ -14,10 +14,11 @@ export const siteConfig = {
         linkedin: "https://www.linkedin.com/in/ph%C6%B0%C6%A1ng-%C3%A2n-l%C3%BD-h%E1%BB%93ng-658655292/",
         github: "https://github.com/miraclestg",
         facebook: "https://www.facebook.com/ly.hong.phuong.an.2024/",
-        //instagram: "https://www.instagram.com/tht._csec",
+        instagram: "https://www.instagram.com/miracle_stg/",
         leetcode: "https://leetcode.com/u/lyhongphuongan/",
-        //tiktok: "https://www.tiktok.com/@tuhocleetcode",
-        //discord: "https://discord.com/users/815074234241646592",
+        tiktok: "https://www.tiktok.com/@miracle_stg",
+        discord: "https://discord.com/",
+        threads: "https://www.threads.net/",
     },
 
     academic: {
