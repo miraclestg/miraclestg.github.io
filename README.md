@@ -13,7 +13,6 @@ A modern, responsive portfolio website built with React, TypeScript, TailwindCSS
 - 🌓 **Dark/Light Mode** - Toggle between themes
 - 📱 **Responsive** - Works on all devices
 - 🔍 **SEO Optimized** - Meta tags, Open Graph, Schema.org
-- 📲 **PWA Ready** - Installable as an app
 - 🖼️ **Lazy Loading** - Optimized image loading
 
 ## 🛠️ Tech Stack
