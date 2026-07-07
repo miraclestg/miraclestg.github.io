@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with React, TypeScript, TailwindCSS
 
 ## 🚀 Live Demo
 
-**[https://lyhongphuongan.github.io](https://lyhongphuongan.github.io)**
+**[https://miraclestg.github.io](https://miraclestg.github.io)**
 
 ## ✨ Features
 
