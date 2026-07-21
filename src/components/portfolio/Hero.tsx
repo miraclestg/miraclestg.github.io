@@ -21,6 +21,7 @@ const Hero = () => {
   const [visibleLines, setVisibleLines] = useState<number[]>([]);
   const [progressPercentage, setProgressPercentage] = useState(0);
   const [daysRemaining, setDaysRemaining] = useState(0);
+  const [showScrollDown, setShowScrollDown] = useState(true);
 
   useEffect(() => {
     // Calculate dynamic progress
@@ -52,6 +53,15 @@ const Hero = () => {
     };
   }, [titleIndex]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollDown(window.scrollY < 100);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleScrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -60,7 +70,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-20">
       {/* Animated Background */}
       <div className="absolute inset-0 -z-10">
         {/* Gradient Orbs */}
@@ -85,7 +95,7 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="text-center lg:text-left">
-            <div className="opacity-0 animate-fade-in" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
+            <div className="opacity-0 animate-fade-in mt-2.5" style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 text-primary text-sm font-medium mb-6">
                 <Sparkles size={16} className="animate-pulse" />
                 SOC Analyst & Threat Hunter
@@ -194,32 +204,32 @@ const Hero = () => {
                    </div>
                  </div>
 
-                {/* Code Content */}
-                <div className="p-6 font-mono text-sm">
-                  {codeLines.map((line, index) => (
-                    <div
-                      key={index}
-                      className={`flex items-start gap-4 transition-all duration-500 ${visibleLines.includes(index) ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
-                        }`}
-                    >
-                      <span className="text-muted-foreground/50 select-none w-4 text-right">
-                        {index + 1}
-                      </span>
-                      <span className="text-foreground">
-                        {line.text.includes(":") ? (
-                          <>
-                            <span className="text-accent">{line.text.split(":")[0]}</span>
-                            <span className="text-muted-foreground">:</span>
-                            <span className="text-primary">{line.text.split(":").slice(1).join(":")}</span>
-                          </>
-                        ) : (
-                          <span className="text-muted-foreground">{line.text}</span>
-                        )}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+                 {/* Code Content */}
+                 <div className="p-6 font-mono text-sm">
+                   {codeLines.map((line, index) => (
+                     <div
+                       key={index}
+                       className={`flex items-start gap-4 transition-all duration-500 ${visibleLines.includes(index) ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                         }`}
+                     >
+                       <span className="text-muted-foreground/50 select-none w-4 text-right">
+                         {index + 1}
+                       </span>
+                       <span className="text-foreground">
+                         {line.text.includes(":") ? (
+                           <>
+                             <span className="text-accent">{line.text.split(":")[0]}</span>
+                             <span className="text-muted-foreground">:</span>
+                             <span className="text-primary">{line.text.split(":").slice(1).join(":")}</span>
+                           </>
+                         ) : (
+                           <span className="text-muted-foreground">{line.text}</span>
+                         )}
+                       </span>
+                     </div>
+                   ))}
+                 </div>
+               </div>
 
 {/* Floating Elements */}
                <div className="absolute -top-6 -right-6 p-3 rounded-xl bg-gradient-to-br from-primary to-accent shadow-lg animate-float">
@@ -231,17 +241,19 @@ const Hero = () => {
             </div>
           </div>
         </div>
+      </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style={{ animationDelay: "1s", animationFillMode: "forwards" }}>
-          <button onClick={() => handleScrollToSection("about")} className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group">
-            <span className="text-sm font-medium">Scroll Down</span>
-            <div className="p-2 rounded-full border border-border group-hover:border-primary transition-colors">
-              <ArrowDown size={16} className="animate-bounce-subtle" />
-            </div>
-          </button>
-        </div>
-      </div>
+        {showScrollDown && (
+          <div className="absolute top-[58%] md:top-[73%] left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style={{ animationDelay: "1s", animationFillMode: "forwards" }}>
+            <button onClick={() => handleScrollToSection("about")} className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group">
+              <span className="text-sm font-medium">Scroll Down</span>
+              <div className="p-2 rounded-full border border-border group-hover:border-primary transition-colors">
+                <ArrowDown size={16} className="animate-bounce-subtle" />
+              </div>
+            </button>
+          </div>
+        )}
     </section>
   );
 };
