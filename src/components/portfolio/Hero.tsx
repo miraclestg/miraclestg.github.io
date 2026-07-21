@@ -245,7 +245,7 @@ const Hero = () => {
 
         {/* Scroll Indicator */}
         {showScrollDown && (
-          <div className="absolute top-[58%] md:top-[73%] left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style={{ animationDelay: "1s", animationFillMode: "forwards" }}>
+          <div className="absolute top-[58%] md:top-[80%] left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style={{ animationDelay: "1s", animationFillMode: "forwards" }}>
             <button onClick={() => handleScrollToSection("about")} className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group">
               <span className="text-sm font-medium">Scroll Down</span>
               <div className="p-2 rounded-full border border-border group-hover:border-primary transition-colors">
